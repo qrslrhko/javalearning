@@ -10,8 +10,8 @@ def training():
 
 ##### forward propagation function
 ```python
-def forward(input):
-  hidden_layer =reLu_function(input * weight[0] + bias_1)
+def forward(input_value):
+  hidden_layer =reLu_function(input_value * weight[0] + bias_1)
   output_layer =sigmoid_function(hidden_layer * weight[1] + bias_2)
   retrun softmax(output_layer)
 ```  
