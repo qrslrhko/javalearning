@@ -33,14 +33,17 @@ def backward(inputValue, target,learning_rate,momentum,reg):
   grad_weight_1 = learning_rate  *current_gradient_weight_1 + momentum *previous_delta_weight[0]
   grad_bias_1 = sum(delta_2)
   
+  # Add regularization for delta weights
   grad_weight_2 += reg * weight[1]
   grad_weight_1 += reg * weight[0]
   
+  #update biases and weights
   bias_2 += -learning_rate * grad_bias_2
   weight[1] -=  grad_weight_2
   weight[0] -=  grad_weight_1
   bias_1 += -learning_rate * grad_bias_1
   
+  # update previous delta weights 
   previous_delta_weight[0] = grad_weight_1
   previous_delta_weight[1] = grad_weight_2
 ```  
