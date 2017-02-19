@@ -29,19 +29,19 @@ def backward(inputValue, target,learning_rate,momentum,reg):
   grad_bias_2 = sum(delta_3) 
   
   delta_2 = delta3 * weight[1] * ReLUforBackward(hidden_layer)
-	current_gradient_weight_1 = input_value * delta_2
+  current_gradient_weight_1 = input_value * delta_2
   grad_weight_1 = learning_rate  *current_gradient_weight_1 + momentum *previous_delta_weight[0]
   grad_bias_1 = sum(delta_2)
   
   grad_weight_2 += reg * weight[1]
-	grad_weight_1 += reg * weight[0]
+  grad_weight_1 += reg * weight[0]
   
   bias_2 += -learning_rate * grad_bias_2
-	weight[1] -=  grad_weight_2
-	weight[0] -=  grad_weight_1
-	bias_1 += -learning_rate * grad_bias_1
-
-	previous_delta_weight[0] = grad_weight_1
+  weight[1] -=  grad_weight_2
+  weight[0] -=  grad_weight_1
+  bias_1 += -learning_rate * grad_bias_1
+  
+  previous_delta_weight[0] = grad_weight_1
   previous_delta_weight[1] = grad_weight_2
 ```  
 
